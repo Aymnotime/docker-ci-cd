@@ -1,9 +1,10 @@
-version: "3.8"
+version: '3.8'
 
 services:
   web:
-    build: .
+    image: flask-ci-cd:latest
+    build:
+      context: .
     ports:
       - "5000:5000"
     restart: always
-    command: ["python", "app.py"]
