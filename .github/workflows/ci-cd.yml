@@ -56,6 +56,11 @@ jobs:
       - name: Se connecter au serveur Docker
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
+      - name: Installer Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+
       - name: Déployer l'application avec Docker Compose
         run: |
           docker-compose down
