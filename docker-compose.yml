@@ -1,10 +1,6 @@
 version: '3.8'
-
 services:
   web:
-    image: flask-ci-cd:latest
-    build:
-      context: .
+    image: ${DOCKER_USERNAME}/flask-ci-cd:latest 
     ports:
-      - "5000:5000"
-    restart: always
+      - "7000:7000"  
