@@ -1,7 +1,18 @@
+import os
+import sys
 import pytest
-import requests
 
-def test_home():
-    response = requests.get("http://127.0.0.1:5000/")
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')))
+
+from app import app
+
+@pytest.fixture
+def client():
+    with app.test_client() as client:
+        yield client
+
+def test_home(client):
+    response = client.get('/')
     assert response.status_code == 200
-    assert response.text == "Hello world, CI/CD!"
+    assert response.data.decode() == "Hello world, CI/CD!"

@@ -26,6 +26,11 @@ jobs:
           source venv/bin/activate
           pip install -r requirements.txt
 
+      - name: Démarrer le serveur Flask
+        run: |
+          python app.py &
+          sleep 5
+
       - name: Lancer les tests
         run: |
           source venv/bin/activate
