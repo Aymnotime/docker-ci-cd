@@ -63,6 +63,7 @@ jobs:
 
       - name: Déployer l'application avec Docker Compose
         run: |
+          cd c:\Hitema\Docker\flask-ci-cd
           docker-compose down
           docker-compose pull
           docker-compose up -d
